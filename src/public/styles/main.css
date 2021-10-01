@@ -1,4 +1,25 @@
-* {
+section.cards .card {
+    margin-bottom: 30px;
+}
+section.cards .card .card-title {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+header, footer {
+    background: var(--bs-teal);
+    color: #ffffff;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+h1, h2 {
     margin: 0;
-    padding: 0;
 }
