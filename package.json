@@ -1,0 +1,30 @@
+{
+    "name": "koroka",
+    "version": "1.0.0",
+    "description": "KOROKA Solutions: junior candidate test task",
+    "main": "index.js",
+    "scripts": {
+        "start": "clear && node src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ExposedCat/koroka.git"
+    },
+    "keywords": [
+        "nodejs",
+        "express",
+        "bootstrap",
+        "jquery",
+        "api"
+    ],
+    "author": "ExposedCat",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/ExposedCat/koroka/issues"
+    },
+    "homepage": "https://github.com/ExposedCat/koroka#readme",
+    "type": "module",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
