@@ -24,36 +24,37 @@
         <section class="cards">
             <div class="container">
                 <% if (!users.length) { %>
-                <p>
-                    No users found O_O
-                </p>
-                <% } %>
+                <div class="text-center">
+                    <p class="error">
+                        No users found 😰
+                    </p>
+                </div>
+                <% } else { %>
                 <div class="row">
-                    <% for( let n = 0; n < users.length; n += 4 ) { %>
-                    <% for( let offset = 0; offset < 4; ++offset ) { %>
-                    <% if (!users[n + offset]) { %>
-                    <% break %>
-                    <% } %>
+                    <% for( const user of users ) { %>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="card">
-                            <img src="<%= users[n + offset].avatar %>" class="card-img-top" alt="Avatar">
+                            <img src="<%= user.avatar %>" class="card-img-top" alt="Avatar">
                             <div class="card-body">
-                                <h5 class="card-title"><%= users[n + offset].first_name %>
-                                    <%= users[n + offset].last_name %>
+                                <h5 class="card-title"><%= user.first_name %>
+                                    <%= user.last_name %>
                                 </h5>
-                                <p class="card-text"><%= users[n + offset].email %></p>
+                                <p class="card-text"><%= user.email %></p>
                             </div>
                         </div>
                     </div>
                     <% } %>
-                    <% } %>
                 </div>
+                <% } %>
             </div>
         </section>
 
         <% if (nextPage) { %>
         <div class="text-center">
             <button type="button" class="btn btn-primary" id="loadMore" data-page="<%= nextPage %>">Next page</button>
+            <p id="fallback" class="error">
+                No more users found 😰
+            </p>
         </div>
         <% } %>
     </main>
