@@ -5,7 +5,8 @@ import { resolvePath as path } from '../utilites/path-resolver.js'
 function setupServer() {
     const app = express()
 
-    app.use(express.static(path('./src/public')))
+    app.set('views', path('./src/views'))
+    app.set('view engine', 'ejs')
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }));
 
