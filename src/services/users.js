@@ -10,7 +10,7 @@ async function getUsers(page = 1) {
         console.error(error)
         return {
             users: [],
-            nextPage: nulltotalPages > currentPage ? currentPage + 1 : null
+            nextPage: null
         }
     }
     if (response.status === 200) {
@@ -23,7 +23,7 @@ async function getUsers(page = 1) {
         console.error(response)
         return {
             users: [],
-            nextPage: nulltotalPages > currentPage ? currentPage + 1 : null
+            nextPage: null
         }
     }
 }
