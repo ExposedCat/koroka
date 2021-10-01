@@ -7,12 +7,13 @@ function setupServer() {
 
     app.set('views', path('./src/views'))
     app.set('view engine', 'ejs')
+    app.use(express.static(path('./src/public')))
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }));
 
     return {
         app,
-        launch: port => app
+        launchServer: port => app
             .listen(port, () => {
                 console.info(`Server is running on ${port}`)
             })
