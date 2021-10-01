@@ -4,7 +4,8 @@
     "description": "KOROKA Solutions: junior candidate test task",
     "main": "index.js",
     "scripts": {
-        "start": "clear && node src/index.js"
+        "start": "node src/index.js",
+        "csv": "node csv-generator/generate-csv.js"
     },
     "repository": {
         "type": "git",
