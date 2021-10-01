@@ -1,9 +1,9 @@
 # Koroka solutions: Junior Node.JS test task
 ## Installing
 1. Clone repo:  
-`g clone ssh://git@github.com/ExposedCat/posts-chat.git`  
+`g clone https://github.com/ExposedCat/koroka.git`  
 2. Go into project root:  
-`cd posts-chat`
+`cd koroka`
 ## Running  
 1. Install dependencies via npm:  
 `npm i`
