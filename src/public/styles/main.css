@@ -1,9 +1,17 @@
+.row {
+    display: flex;
+    justify-content: center;
+}
+
 main {
     min-height: calc(100vh - 245px)
 }
 
 section.cards .card {
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section.cards .card .card-title {
@@ -13,11 +21,6 @@ section.cards .card .card-title {
 
 section.cards .card .card-text {
     min-height: 50px;
-}
-
-section.cards .card .card-img-top {
-    aspect-ratio: 1;
-    object-fit: cover;
 }
 
 .error {
