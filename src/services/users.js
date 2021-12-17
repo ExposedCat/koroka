@@ -1,39 +1,35 @@
 import axios from 'axios'
+import { authorizeUser } from './auth.js'
 import { apiEndpoint } from '../config/manifest.js'
 
 
-async function getUsers(customerId) {
-    // TODO: Return customer from SFCC by given customer ID
+async function getUserData(credentials) {
+    if (!credentials) {
+        throw 'Credentials are not specified'
+    }
+    const { clientId, accessToken } = await authorizeUser(credentials)
+    console.log('cid', clientId)
+    console.log('atok', accessToken)
 
-    // let response
-    // try {
-    //     response = await axios.get(`${apiEndpoint}?page=${page}`)
-    // } catch (error) {
-    //     console.error(error)
-    //     return {
-    //         users: [],
-    //         nextPage: null
-    //     }
-    // }
-    // if (response.status === 200) {
-    //     const { total_pages: totalPages, page: currentPage, data } = response.data
-    //     return {
-    //         users: data,
-    //         nextPage: totalPages > currentPage ? currentPage + 1 : null
-    //     }
-    // } else {
-    //     console.error(response)
-    //     return {
-    //         users: [],
-    //         nextPage: null
-    //     }
-    // }
-    // return {
-    //     firstName: 'Test First Name',
-    //     secondName: 'Test Last Name',
-    //     email: 'test@email'
-    // }
+    const method = clientId
+    const headers = {
+        'Authorization': accessToken,
+    }
+    const requestUri = `${apiEndpoint}/${method}`
+
+    try {
+        const response = await axios.get(requestUri, { headers })
+        const {
+            email,
+            first_name: firstName,
+            last_name: secondName
+        } = response.data
+
+        return { email, firstName, secondName }
+    } catch (error) {
+        throw error.response.data.fault.message
+    }
 }
 
 
-export { getUsers }
+export { getUserData }

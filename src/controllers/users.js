@@ -1,21 +1,20 @@
-import { getUsers } from '../services/users.js'
+import { getUserData } from '../services/users.js'
 
 
 function startHandlingRequests(app) {
     app.get('/', async (request, response) => {
-        const { customerId } = request.query
+        const { credentials } = request.query
         let data = {
             error: true,
             customerData: null,
             errorDescription: null
         }
-        if (!customerId) {
-            data.errorDescription = 'Customer ID is not specified'
+        if (!credentials) {
+            data.errorDescription = 'Customer credentials (base64 encoded) is not specified'
         }
         try {
-            const customerData = await getUsers(customerId)
+            data.customerData = await getUserData(credentials)
             data.error = false
-            data.customerData = customerData
         } catch (error) {
             data.errorDescription = error
         }
