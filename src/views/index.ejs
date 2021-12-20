@@ -14,7 +14,7 @@
     <header>
         <div class="container">
             <div class="text-center">
-                <h1>Business cards</h1>
+                <h1>Business card</h1>
                 <p>KOROKA Solutions: Junior candidate test task</p>
             </div>
         </div>
@@ -23,40 +23,31 @@
     <main>
         <section class="cards">
             <div class="container">
-                <% if (!users.length) { %>
-                <div class="text-center">
-                    <p class="error">
-                        No users found 😰
-                    </p>
-                </div>
+                <% if (error) { %>
+                    <div class="text-center">
+                        <p class="error">
+                            <%= errorDescription || 'Unknown error' %> 😰
+                        </p>
+                    </div>
                 <% } else { %>
-                <div class="row">
-                    <% for( const user of users ) { %>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <img src="<%= user.avatar %>" class="card-img-top" alt="Avatar">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= user.first_name %>
-                                    <%= user.last_name %>
-                                </h5>
-                                <p class="card-text"><%= user.email %></p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= customerData.firstName %>
+                                        <%= customerData.secondName %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= customerData.email %>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <% } %>
-                </div>
                 <% } %>
             </div>
         </section>
-
-        <% if (nextPage) { %>
-        <div class="text-center">
-            <button type="button" class="btn btn-primary" id="loadMore" data-page="<%= nextPage %>">Next page</button>
-            <p id="fallback" class="error">
-                No more users found 😰
-            </p>
-        </div>
-        <% } %>
     </main>
 
     <footer>
@@ -68,8 +59,6 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/engine/config.js"></script>
-    <script src="/engine/main.js"></script>
 </body>
 
 </html>
