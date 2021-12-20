@@ -8,8 +8,6 @@ async function getUserData(credentials) {
         throw 'Credentials are not specified'
     }
     const { clientId, accessToken } = await authorizeUser(credentials)
-    console.log('cid', clientId)
-    console.log('atok', accessToken)
 
     const method = clientId
     const headers = {
