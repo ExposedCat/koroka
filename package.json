@@ -4,8 +4,7 @@
     "description": "KOROKA Solutions: junior candidate test task",
     "main": "index.js",
     "scripts": {
-        "start": "node src/index.js",
-        "csv": "node csv-generator/generate-csv.js"
+        "start": "node src/index.js"
     },
     "repository": {
         "type": "git",
@@ -16,7 +15,9 @@
         "express",
         "bootstrap",
         "jquery",
-        "api"
+        "api",
+        "sfcc",
+        "ocapi"
     ],
     "author": "ExposedCat",
     "license": "GPL-3.0-or-later",
